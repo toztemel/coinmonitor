@@ -1,4 +1,4 @@
-package cryptoping
+package coinmarket
 
 type Record struct {
 	Id           string  `json:"id"`

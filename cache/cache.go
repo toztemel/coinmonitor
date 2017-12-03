@@ -2,11 +2,11 @@ package cache
 
 import (
 	"fmt"
-	"github.com/toztemel/cryptoping"
+	"github.com/toztemel/cryptoping/coinmarket"
 	"math"
 )
 
-var cache map[string]cryptoping.Record
+var cache map[string]coinmarket.Record
 
 const log_precision float64 = 0.1
 const notify_precision float64 = 0.5
@@ -14,14 +14,14 @@ const notify_precision float64 = 0.5
 const log_precision_rank int = 0
 const notify_precision_rank int = 2
 
-func Init(records []cryptoping.Record) {
+func Init(records []coinmarket.Record) {
 
 	if records == nil {
 		panic("No results")
 	}
 
 	fmt.Println("Retrieve initial results:")
-	cache = make(map[string]cryptoping.Record)
+	cache = make(map[string]coinmarket.Record)
 
 	for _, record := range records {
 		add(record)
@@ -29,7 +29,7 @@ func Init(records []cryptoping.Record) {
 
 }
 
-func add(record cryptoping.Record) {
+func add(record coinmarket.Record) {
 
 	cache[record.Symbol] = record
 	if (record.MarketCapUsd >= 1000000000) {
@@ -38,13 +38,13 @@ func add(record cryptoping.Record) {
 
 }
 
-func Update(records []cryptoping.Record) {
+func Update(records []coinmarket.Record) {
 	for _, ticker := range records {
 		update(ticker)
 	}
 }
 
-func update(record cryptoping.Record) {
+func update(record coinmarket.Record) {
 
 	if record.LastUpdated == cache[record.Symbol].LastUpdated {
 		return

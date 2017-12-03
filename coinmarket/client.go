@@ -1,4 +1,4 @@
-package cryptoping
+package coinmarket
 
 import (
 	"bytes"
