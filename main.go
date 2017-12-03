@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/toztemel/cryptoping/coinmarket"
-	"github.com/toztemel/cryptoping/cache"
+	"github.com/toztemel/coinmonitor/market"
+	"github.com/toztemel/coinmonitor/cache"
 	"time"
 	"fmt"
 )
@@ -10,7 +10,7 @@ import (
 func main() {
 
 	fmt.Println(time.Now())
-	result := coinmarket.Latest()
+	result := market.Latest()
 
 	cache.Init(result)
 
@@ -20,7 +20,7 @@ func main() {
 			fmt.Println()
 			fmt.Println("Tick at",t)
 			fmt.Println()
-			result = coinmarket.Latest()
+			result = market.Latest()
 
 			cache.Update(result)
 

@@ -1,4 +1,4 @@
-package coinmarket
+package market
 
 type Record struct {
 	Id           string  `json:"id"`

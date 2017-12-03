@@ -1,4 +1,4 @@
-package coinmarket
+package market
 
 import (
 	"bytes"
